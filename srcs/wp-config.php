@@ -23,7 +23,7 @@
 define( 'DB_NAME', 'wordpress' );
 
 /** MySQL database username */
-define( 'DB_USER', 'wordpress_user' );
+define( 'DB_USER', 'user' );
 
 /** MySQL database password */
 define( 'DB_PASSWORD', 'password' );
@@ -36,26 +36,6 @@ define( 'DB_CHARSET', 'utf8' );
 
 /** The Database Collate type. Don't change this if in doubt. */
 define( 'DB_COLLATE', '' );
-
-/**#@+
- * Authentication Unique Keys and Salts.
- *
- * Change these to different unique phrases!
- * You can generate these using the {@link https://api.wordpress.org/secret-key/1.1/salt/ WordPress.org secret-key service}
- * You can change these at any point in time to invalidate all existing cookies. This will force all users to have to log in again.
- *
- * @since 2.6.0
- */
-define('AUTH_KEY',         '8u_}zdL_=eeJ]+/p%N^lT~,T~XkV:u,b)CAD*_}]U9imShY`uhb.W, ,DaV_~fXM');
-define('SECURE_AUTH_KEY',  'mxUR@_hF=GkdyBBh2<+;>{d^0P.-#S@&0POAXHr!0Q FmM3CMe@x#aRA15L^_TRO');
-define('LOGGED_IN_KEY',    'ME|eiBd9W^4Oi=i1El$vKed+/bqFTr6-J9t>PB*R<6VzHbMnN~dDO72l],x]_HRC');
-define('NONCE_KEY',        'Z,=.ZX&oMXSui+-itoShZVHq{~|O10H92b|1:Y!@A$+gDPiwybZj%`J@3Z+l~(}W');
-define('AUTH_SALT',        'ZirXr3hDU@r8%FT@w?eb,a2{~~fIG<W?B fOy!JWk[)[BlF}Q4p7S{QxVT}-dxKY');
-define('SECURE_AUTH_SALT', '8jImw}+SQ#|%dW>cfa({,FEk6,QI#wh4n2n-Uj-_2Ht,!A^?rJ*0@=j]DcA{e>vR');
-define('LOGGED_IN_SALT',   '+7&^^FWA4+l-A=#3(gAad:Ybb[?se*OR^p%+cH>+{YKKq(F;=fN&D+S3/Qx:M?9I');
-define('NONCE_SALT',       '@GG%k0FDjo]a_Y4a9rIp=~s[R*Cw:W-f{=[DY,jE`.`,;/Vu17Qc_u1CPNQ4/qak');
-
-/**#@-*/
 
 /**
  * WordPress Database Table prefix.
@@ -86,8 +66,8 @@ define('FS_METHOD', 'direct');
 
 /** Absolute path to the WordPress directory. */
 if ( ! defined( 'ABSPATH' ) ) {
-	define( 'ABSPATH', __DIR__ . '/' );
+	define( 'ABSPATH', dirname( __FILE__ ) . '/' );
 }
 
 /** Sets up WordPress vars and included files. */
-require_once ABSPATH . 'wp-settings.php';
+require_once( ABSPATH . 'wp-settings.php' );
