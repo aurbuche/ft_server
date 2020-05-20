@@ -16,12 +16,12 @@ RUN 		apt-get update && \
 # Create the directories
 
 RUN			mkdir /var/www/localhost
-RUN			mkdir /var/www/localhost/wordpress
+# RUN			mkdir /var/www/localhost/wordpress
 
-# Get PHPMyAdmin & Wordpress
+# Downloading PHPMyAdmin & Wordpress
 
 RUN			wget -qP /tmp https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.xz
-# RUN			wget -qP /tmp https://wordpress.org/latest.tar.gz
+RUN			wget -qP /tmp https://wordpress.org/latest.tar.gz
 
 # Home page setup
 
@@ -30,13 +30,13 @@ COPY		srcs/index.css /var/www/localhost
 COPY 		srcs/logo_wordpress.jpg /var/www/localhost
 COPY 		srcs/logo_phpmyadmin.jpg /var/www/localhost
 COPY		srcs/subject.jpg /var/www/localhost
-COPY		srcs/fr.subject.pdf	/var/www/localhost
+COPY		srcs/en.subject.pdf	/var/www/localhost
 
 # Wordpress setup
 
-RUN 		tar -zxf /tmp/latest.tar.gz -C /var/www/localhost/wordpress && \
-			rm /tmp/latest.tar.gz 
-
+RUN 		tar -zxf /tmp/latest.tar.gz && \
+			rm /tmp/latest.tar.gz && \
+			mv wordpress /var/www/localhost
 RUN			echo "\033[38;2;0;128;0mWordpress is install\033[0m"
 
 # PHPMyAdmin setup
@@ -79,4 +79,4 @@ EXPOSE		80 443
 COPY		srcs/start.sh /tmp/
 CMD			bash "/tmp/start.sh"
 
-RUN			echo "\033[38;2;0;128;0mEverything is OK, you can go to https://localhost to see your container ✅\033[0m"
+RUN			echo "\033[38;2;0;128;0mEverything is OK, you can run and go to https://localhost to see your container ✅\033[0m"
