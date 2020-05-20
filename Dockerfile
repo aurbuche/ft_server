@@ -32,6 +32,9 @@ COPY 		srcs/logo_phpmyadmin.jpg /var/www/localhost
 COPY		srcs/subject.jpg /var/www/localhost
 COPY		srcs/en.subject.pdf	/var/www/localhost
 
+RUN			echo "\033[38;2;0;128;0mThe home page is ready!\033[0m"
+
+
 # Wordpress setup
 
 RUN 		tar -zxf /tmp/latest.tar.gz && \
@@ -44,9 +47,10 @@ RUN			echo "\033[38;2;0;128;0mWordpress is install\033[0m"
 RUN			tar -xf /tmp/phpMyAdmin-4.9.2-all-languages.tar.xz && \
 	 		rm /tmp/phpMyAdmin-4.9.2-all-languages.tar.xz && \
 			mv phpMyAdmin-4.9.2-all-languages /var/www/localhost/phpmyadmin
-RUN			echo "\033[38;2;0;128;0mPHPMyAdmin is install\033[0m"
 
 COPY		srcs/config.inc.php /var/www/localhost/phpmyadmin/
+
+RUN			echo "\033[38;2;0;128;0mPHPMyAdmin is install\033[0m"
 
 # Mariadb setup
 
@@ -74,9 +78,12 @@ COPY		srcs/ssl-params.conf /etc/nginx/snippets/
 RUN			ln -s /etc/nginx/sites-available/localhost  /etc/nginx/sites-enabled/ && \
 			chown -R www-data:www-data /var/www/localhost
 
+RUN			echo "\033[38;2;0;128;0mNginx is up!\033[0m"
+
 # Final setup
 EXPOSE		80 443
 COPY		srcs/start.sh /tmp/
 CMD			bash "/tmp/start.sh"
 
-RUN			echo "\033[38;2;0;128;0mEverything is OK, you can run and go to https://localhost to see your container ✅\033[0m"
+RUN			echo "\033[38;2;0;128;0mNow type this command: docker run -d -p 80:80 -p 443:443 ft_server\033[0m" && \
+			echo "\033[38;2;0;128;0mAfter that everything will be OK, you can go to https://localhost and see your container ✅\033[0m"
