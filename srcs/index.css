@@ -1,16 +1,14 @@
-body
+.body
 {
-	background-image: linear-gradient(to right, darkred, purple);
+	position: absolute;
+	width: 100%;
+	background-color: white;
 	height: 100%;
-
 }
 
 .footer
 {
-	width: 100%;
-	bottom: 0;
 	text-align: center;
 	font-size: large;
 	font-family: Book Antiqua;
-	color: black;
-}
+	color: black

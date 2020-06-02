@@ -81,6 +81,7 @@ RUN			ln -s /etc/nginx/sites-available/localhost  /etc/nginx/sites-enabled/ && \
 RUN			echo "\033[38;2;0;128;0mNginx is up!\033[0m"
 
 # Final setup
+
 EXPOSE		80 443
 COPY		srcs/start.sh /tmp/
 CMD			bash "/tmp/start.sh"
