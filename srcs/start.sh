@@ -1,3 +1,3 @@
+service mysql restart 2> /dev/null
 service php7.3-fpm start
-service nginx start
-tail -f /dev/null
+nginx -g 'daemon off;'
