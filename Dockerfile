@@ -38,7 +38,7 @@ RUN			echo "\033[38;2;0;128;0mThe home page is ready!\033[0m"
 RUN			wget -q https://fr.wordpress.org/latest-fr_FR.tar.gz
 
 RUN 		tar xf latest-fr_FR.tar.gz && \
-			rm -f latest-fr_FR.tar.gz
+			rm -rf latest-fr_FR.tar.gz
 
 COPY		srcs/wp-config.php wordpress/
 
@@ -48,7 +48,7 @@ RUN			echo "\033[38;2;0;128;0mWordpress is install\033[0m"
 RUN			wget -q https://files.phpmyadmin.net/phpMyAdmin/4.9.2/phpMyAdmin-4.9.2-all-languages.tar.xz
 
 RUN			tar -xf phpMyAdmin-4.9.2-all-languages.tar.xz && \
-	 		rm phpMyAdmin-4.9.2-all-languages.tar.xz && \
+	 		rm -rf phpMyAdmin-4.9.2-all-languages.tar.xz && \
 			mv phpMyAdmin-4.9.2-all-languages ./phpmyadmin
 
 RUN			echo "\033[38;2;0;128;0mPHPMyAdmin is install\033[0m"
